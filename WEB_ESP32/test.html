@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css.css">
+</head>
+<body>
+  
+
+  <div class="nutnhan">
+    <div class="led" id="led" title="1">
+        <div class="btn btn_on">
+            <div class="btn_1">ON LED</div>
+        </div>
+    </div>
+
+
+    <div class="fan" id="fan" title="1">
+        <div class="btn btn_on">
+            <div class="btn_1">ON FAN</div>
+        </div>
+    </div>
+
+
+    <div class="pump" id="pump" title="1">
+        <div class="btn btn_on">
+            <div class="btn_1">ON PUMP</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="nutnhan">
+    <div class="led" id="led1" title="0">
+        <div class="btn btn_off">
+            <div class="btn_1">OFF LED</div>
+        </div>
+    </div>
+
+
+    <div class="fan" id="fan1" title="0">
+        <div class="btn btn_off">
+            <div class="btn_1">OFF FAN</div>
+        </div>
+    </div>
+
+
+    <div class="pump" id="pump1" title="0">
+        <div class="btn btn_off">
+            <div class="btn_1">OFF PUMP</div>
+        </div>
+    </div>
+</div>
+<script>
+
+
+   
+
+  function getled() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            led =  this.responseText;
+            console.log("trang thai led", led);
+
+
+
+        }
+      };
+      xhttp.open("GET", "docbuttonled", true);
+      xhttp.send();
+    }
+
+    function getfan() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            fan =  this.responseText;
+            console.log("trang thai fan", fan);
+
+
+        }
+      };
+      xhttp.open("GET", "docbuttonfan", true);
+      xhttp.send();
+    }
+
+    function getpump() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            pump =  this.responseText;
+
+            console.log("trang thai pump", pump);
+
+        }
+      };
+      xhttp.open("GET", "docbuttonpump", true);
+      xhttp.send();
+    }
+
+
+    var led;
+    var fan;
+    var pump;
+setTimeout(function()
+{
+    getled();
+    getfan();
+    getpump();
+
+}, 1000)
+    
+
+    console.log(typeof led);
+
+
+
+    if(led == 1){
+        document.getElementById("led").style.display = "none";
+    }
+    else{
+        document.getElementById("led1").style.display = "none";
+
+    }
+
+    if(fan == 1){
+        document.getElementById("fan").style.display = "none";
+    }
+    else{
+        document.getElementById("fan1").style.display = "none";
+
+    }
+
+    if(pump == 1){
+        document.getElementById("pump").style.display = "none";
+    }
+    else{
+        document.getElementById("pump1").style.display = "none";
+
+    }
+  
+    function sendData_LED(pos) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+        }
+      };
+      xhttp.open("GET", "setLED?CLED=" + pos, true);
+      xhttp.send();
+    }
+
+    function sendData_FAN(pos) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+        }
+      };
+      xhttp.open("GET", "setFAN?CFAN=" + pos, true);
+      xhttp.send();
+    }
+
+    function sendData_PUMP(pos) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+        }
+      };
+      xhttp.open("GET", "setPUMP?CPUMP=" + pos, true);
+      xhttp.send();
+    }
+    
+
+
+
+
+
+
+
+        var button_led = document.getElementById("led");
+
+        button_led.onclick = function () {
+            document.getElementById("led").style.display = "none";
+            document.getElementById("led1").style.display = "block";
+            
+            console.log("LED dang o muc: ", button_led.title)
+            sendData_LED(button_led.title)
+
+        }
+
+        var button_led1 = document.getElementById("led1");
+
+        button_led1.onclick = function () {
+            document.getElementById("led1").style.display = "none";
+            document.getElementById("led").style.display = "block";
+            console.log("LED dang o muc: ", button_led1.title)
+            sendData_LED(button_led1.title);
+        }
+
+
+        var button_fan = document.getElementById("fan");
+
+        button_fan.onclick = function () {
+            document.getElementById("fan").style.display = "none";
+            document.getElementById("fan1").style.display = "block";
+            console.log("FAN dang o muc: ", button_fan.title)
+
+            sendData_FAN(button_fan.title);
+        }
+
+        var button_fan1 = document.getElementById("fan1");
+
+        button_fan1.onclick = function () {
+            document.getElementById("fan1").style.display = "none";
+            document.getElementById("fan").style.display = "block";
+            console.log("FAN dang o muc: ", button_fan1.title)
+            sendData_FAN(button_fan1.title);
+        }
+        var button_pump = document.getElementById("pump");
+
+        button_pump.onclick = function () {
+            document.getElementById("pump").style.display = "none";
+            document.getElementById("pump1").style.display = "block";
+            console.log("PUMP dang o muc: ", button_pump.title)
+
+            sendData_PUMP(button_pump.title);
+        }
+
+        var button_pump1 = document.getElementById("pump1");
+
+        button_pump1.onclick = function () {
+            document.getElementById("pump1").style.display = "none";
+            document.getElementById("pump").style.display = "block";
+            console.log("PUMP dang o muc: ", button_pump1.title)
+            sendData_PUMP(typeof button_pump1.title);
+        }
+
+
+
+
+</script>
+  
+</body>
+</html>

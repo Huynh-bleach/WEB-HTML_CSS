@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome-free-6.2.0-web/css/all.min.css">
+    <style>
+      
+
+      .slid {
+          -webkit-appearance: none;
+          width: 500px;
+          height: 20px;
+          border-radius: 5px;
+          background: #111;
+          outline: none;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: inset 0 0 5px rgba (0,0,0,1);
+          cursor: pointer;
+        }
+        
+        .slid::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          
+          width: 19px;
+          height: 19px;
+          border-radius: 50%;
+          background: #ea091c;
+          cursor: pointer;
+          border: 4px solid rgb(247, 176, 176);
+          box-shadow: -560px 0 0 550px #f10a0a;
+        }
+        #quay, #do{
+            font-family: Arial, Helvetica;
+            color: #870808;
+            font-size: 25px;
+  
+        }
+        h2{
+            color: rgb(116, 119, 77);
+            margin-left: 100px;
+            margin-top: 40px;
+        }
+
+
+        #toast {
+            
+            display: none;
+            background-color:#fafafa;
+            border-radius: 2px;
+            padding: 20px 0;
+            min-width: 400px;
+            max-width: 750px;
+            border-left: 9px solid #054e11;
+            box-shadow: 0 7px 12px rgba(5, 7, 0, 0.4);
+            transition: all linear 0.3s;
+            /*background-color: #fafafa;*/
+            align-items: center;
+            background-color: rgb(206, 243, 212);
+
+            margin: auto;
+
+          }
+          #toast div{
+            
+            text-align: center;
+            margin: auto;
+          }
+
+          .btn{
+              display: flex;
+              width: 125px;
+              height: 40px;
+              border: none;
+              border-radius: 2px;
+              padding: 2px 8px;
+              cursor: pointer;
+              color: #fff;
+              background-color: white;
+              
+              
+              background-color:#ee4b2b;
+
+   
+              }
+
+              .btn h1{
+                font-size: 25px;
+                margin: auto;
+                
+              }
+
+              .slid + #quay{
+                margin-top: 6px;
+                margin-bottom: 7px;
+              }
+
+              #icon{
+                color:#56e22b;
+                font-size: 50px;
+                font-weight: 700;
+                cursor: pointer;
+
+              }
+
+
+
+              
+
+
+    </style>
+  </head>
+  <body>
+
+    <div id="icon" onclick="click_icon()">
+      <i class="fa-solid fa-gear"></i>
+
+    </div>
+
+    <div id="toast">
+        <div class="slidecontainer">
+          <input type="range" min="0" max="100" value="0" class="slid" id="my0">
+            <p id="quay">Nhiet do: <span id="demo0"></span><span id="do"> °C</span></p>
+        </div>
+
+        <div class="slidecontainer">
+          <input type="range" min="0" max="120" value="0" class="slid" id="my1">
+            <p id="quay">Thoi gian quat: <span id="demo1"></span><span id="do"> s</span></p>
+        </div>
+
+
+        <div class="slidecontainer">
+          <input type="range" min="0" max="100" value="0" class="slid" id="my2">
+            <p id="quay">Do am dat: <span id="demo2"></span><span id="do"> %</span></p>
+        </div>
+
+        <div class="slidecontainer">
+          <input type="range" min="0" max="120" value="0" class="slid" id="my3">
+            <p id="quay">Thoi gian bom: <span id="demo3"></span><span id="do"> s</span></p>
+        </div>
+
+        <div onclick="button()" class="btn">
+          <h1>OK</h1>
+        </div>
+
+
+    </div>
+        
+    <script>
+      function sendData(pos) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+          }
+        };
+        xhttp.open("GET", "setPOS?servoPOS="+pos, true);
+        xhttp.send();
+      } 
+     var s0 = document.getElementById("my0");
+            var o0 = document.getElementById("demo0");
+            o0.innerHTML = s0.value;
+      
+            s0.oninput = function() {
+              o0.innerHTML = this.value;
+              sendData(o0.innerHTML);
+            }
+
+
+
+            ////
+            function sendData1(pos) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+          }
+        };
+        xhttp.open("GET", "setPOS?servoPOS="+pos, true);
+        xhttp.send();
+      } 
+     var s1 = document.getElementById("my1");
+            var o1 = document.getElementById("demo1");
+            o1.innerHTML = s1.value;
+      
+            s1.oninput = function() {
+              o1.innerHTML = this.value;
+              sendData1(o.innerHTML);
+            }
+
+
+        function sendData2(pos) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+          }
+        };
+        xhttp.open("GET", "setPOS?servoPOS="+pos, true);
+        xhttp.send();
+      } 
+     var s2 = document.getElementById("my2");
+            var o2 = document.getElementById("demo2");
+            o2.innerHTML = s2.value;
+      
+            s2.oninput = function() {
+              o2.innerHTML = this.value;
+              sendData2(o.innerHTML);
+            }
+
+
+            function sendData3(pos) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+          }
+        };
+        xhttp.open("GET", "setPOS?servoPOS="+pos, true);
+        xhttp.send();
+      } 
+     var s3 = document.getElementById("my3");
+            var o3 = document.getElementById("demo3");
+            o3.innerHTML = s3.value;
+      
+            s3.oninput = function() {
+              o3.innerHTML = this.value;
+              sendData3(o.innerHTML);
+            }
+
+
+
+
+            function button(){
+              document.getElementById("toast").style.display = "none";              
+              
+
+            }
+
+
+            function click_icon(){
+              document.getElementById("toast").style.display = "block";              
+              
+
+            }
+
+
+      
+
+      
+      
+
+      
+
+
+
+
+
+      
+    </script>
+ 
+  </body>
+</html>

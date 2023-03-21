@@ -1,0 +1,440 @@
+
+        html{
+            width: 100%;
+            height: 100%;
+            /*background-image: url(http://sieuimba.com/wp-content/uploads/2015/05/a8.jpg);*/
+            background-image: url(https://thuthuatnhanh.com/wp-content/uploads/2021/12/Background-cay-xanh-phong-canh-dep.jpg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+
+            
+        }
+        #home{
+            display: block;
+            width: 750px;
+            height: 450px;
+            margin: 40px auto auto auto;
+            border: 5px solid rgba(138, 27, 27, 0.7);
+            border-radius: 3px;
+            box-shadow: 0 3px 5px #155d06;
+            
+            align-items: center;
+            position: relative;
+
+            
+        }
+        .main{
+            color:aqua;
+            text-align: center;
+            margin: auto 31px;
+            
+            
+            
+        }
+        h1{
+            /*background-color: cyan;*/
+            color:rgb(88, 5, 8);
+
+        }
+        .content{
+            margin: 30px auto;
+            color: #fff;
+            
+        }
+        .temp,
+        .fah,
+        .humi,
+        .soid,
+        .light{
+            display: flex;
+            height: 50px;
+            width:600px;
+            margin: auto;
+            border: 3px solid #1bc4c1;
+            border-radius: 4px;
+            box-shadow:0 3px 5px #053d62; ;
+        }
+
+
+        .temp i,
+        .fah i,
+        .humi i,
+        .soid i,
+        .light i
+        {
+            margin: auto 5px;
+            
+        }
+
+        .temp i, .temp h2{
+            color:red;
+            margin: auto 5px;
+        }
+        .fah i, .fah h2{
+            color: blue;
+            margin: auto 5px;
+        }
+        .humi i, .humi h2 {
+            color: green;
+            margin: auto 5px;
+        }
+        .soid i, .soid h2 {
+            color:brown;
+            margin: auto 5px;
+        }
+        .light i, .light h2{
+            color: orange;
+            margin: auto 5px;
+        }
+        /*
+        .temp h2,
+        .fah h2,
+        .humi h2,
+        .soid h2,
+        .light h2{
+            margin: auto 5px;
+            color:firebrick;
+            //background-color: aliceblue;
+        
+        }
+        */
+        .temp + .fah{
+            margin-top: 10px;
+        } 
+        .fah + .humi {
+            margin-top: 10px;
+        }
+        .humi + .soid{
+            margin-top:10px;
+        }
+
+        .soid + .light{
+            margin-top: 10px;
+        }
+
+        .light + .nutnhan{
+            margin-top: 70px;
+        }
+        
+
+
+        
+        .nutnhan{
+            display: flex;
+            justify-content: space-around;
+        }
+        .btn{
+            min-width: 120px;
+            max-width: 200px;
+            height: 50px;
+            box-sizing: border-box;
+            outline: none;
+            color: #fff;
+            padding: 4px 4px;
+            border-radius: 50px;
+            cursor: pointer;
+           
+            margin: auto;
+            text-align: center;
+            font-size: 25px;
+            font-weight: 900;
+            z-index: 2;
+            box-shadow: 3px 3px 3px 3px #212129;
+
+
+
+            
+
+        }
+        .btn_on {
+            background-image: linear-gradient(135deg, #f7633e, #86d472);
+            display: block;
+           
+            
+           
+            
+            }
+
+
+        
+        .btn_off{
+            
+            background-image: linear-gradient(135deg, #e1e822, #1eb3c7);
+            display: block;
+           
+           
+            
+        }
+        .btn_on .btn_1, .btn_off .btn_1  
+        {
+            
+            background: black;
+            border-radius: 50px;
+            height:100%;
+            transition: background 0.5s ease;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+       
+        .btn_on:hover .btn_1 {
+           background: transparent;
+           opacity: 0.9;
+           color:#0e0e10;
+           }
+        .btn_off:hover .btn_1 {
+           background: transparent;
+           opacity: 0.9;
+           color:#0e0e10;
+        
+           }
+  
+  /* Modifier */
+       
+        
+        
+       /* .btn + .btn{
+            margin-top: 16px;
+        }*/
+        a{
+            text-decoration: none;
+            margin-bottom: 16px;
+        }
+        .video{
+            min-width: 120px;
+            max-width: 200px;
+            height: 50px;
+            box-sizing: border-box;
+            outline: none;
+            color:purple;
+            padding: 4px 4px;
+            border-radius: 50px;
+            cursor: pointer;
+           
+            margin: auto;
+            text-align: center;
+            font-size: 25px;
+            font-weight: 900;
+            z-index: 2;
+            box-shadow: 3px 3px 3px 3px #212129;
+
+
+
+           
+
+        }
+        .video:hover{
+            background-color: purple;
+            color:#fff;
+        }
+
+        /*.refresh{
+            min-width: 120px;
+            width: 192px;
+            height: 50px;
+            box-sizing: border-box;
+            outline: none;
+            color:chartreuse;
+            padding: 4px 4px;
+            border-radius: 50px;
+            cursor: pointer;
+           
+            margin: auto;
+            text-align: center;
+            font-size: 25px;
+            font-weight: 900;
+            z-index: 2;
+            box-shadow: 3px 3px 3px 3px #212129;
+
+
+
+
+        }
+        .refresh:hover{
+            background-color: chartreuse;
+            color: #fff;
+        }*/
+       
+        
+        /* css dieu khien servo*/
+        .slidecontainer {
+        /*width: 50%;*/
+      }
+
+      .slid {
+          -webkit-appearance: none;
+          width: 300px;
+          height: 25px;
+          border-radius: 5px;
+          background: #111;
+          outline: none;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: inset 0 0 5px rgba (0,0,0,1);
+        }
+
+        #toast .slid_change{
+            width: 1000px;
+        }
+        
+        .slid::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          
+          width: 19px;
+          height: 19px;
+          border-radius: 50%;
+          background: #ec1249;
+          cursor: pointer;
+          border: 4px solid rgb(247, 176, 176);
+          box-shadow: -560px 0 0 550px #f10a0a;
+        }
+        #quay, #do{
+            font-family: Arial, Helvetica;
+            color: #870808;
+            font-size: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .slid + #quay{
+                margin-top: 6px;
+                margin-bottom: 7px;
+              }
+
+        h2{
+            color: rgb(116, 119, 77);
+            margin-left: 100px;
+            margin-top: 40px;
+        }
+
+       /* cai dat trang hien ra*/
+       
+       #toast {
+            
+            display: none;
+            border-radius: 2px;
+            padding: 20px 0;
+            width: 1200px;
+            border-left: 9px solid #054e11;
+            box-shadow: 0 7px 12px rgba(5, 7, 0, 0.4);
+            transition: all linear 0.3s;
+            /*background-color: #fafafa;*/
+            align-items: center;
+            background-color: rgba(206, 243, 212,0.5);
+            margin: 100px auto auto auto;
+            
+
+          }
+          #toast div{
+            
+            text-align: center;
+            margin: auto;
+          }
+          #intro{
+            text-align: center;
+            margin: 10px 0px 30px;
+          }
+
+          .btn_click{
+              display: flex;
+              width: 125px;
+              height: 40px;
+              border: none;
+              border-radius: 2px;
+              padding: 2px 8px;
+              cursor: pointer;
+              color: #fff;
+              background-color: white;
+              
+              
+              background-color:#ee4b2b;
+
+   
+              }
+
+              .btn_click h1{
+                font-size: 25px;
+                margin: auto;
+                
+              }
+
+              .slid + #quay{
+                margin-top: 18px;
+                margin-bottom: 21px;
+              }
+
+              #icon{
+                color:#1b6306;
+                font-size: 50px;
+                font-weight: 700;            
+                position: absolute;
+                top: 100px;
+                left: 200px;
+                cursor: pointer;
+
+
+              }
+
+              .control i{
+                font-size: 30px;
+                color: #5b2e12;
+                margin-left: 10px;
+              }
+              .control{
+                display: flex;
+                text-align: center;
+                align-items: center;
+                max-width: 135px;
+                cursor: pointer;
+                height: 50px;
+                
+              }
+              .control h4{
+                font-size: 20px;
+                margin-left: 10px;
+                color: #000000;
+              }
+
+              #icon_home{
+                background-color: rgba(0, 255, 0, 0.5);
+              }
+
+              .control + .control{
+                margin-top: 0px;
+              }
+              .control:hover{
+                background-color: rgba(0, 255, 0, 0.5);
+               
+              }
+
+             .location{
+                position: absolute;
+                width: 135px;
+                top: 0px;
+                left: 0px;
+                
+             }
+
+             #icon_video{
+                
+                
+             }
+
+             #myChart{
+       
+                padding: 15px;
+                border: 5px solid #0f580f;
+                border-radius: 3px;
+                margin: 75px auto auto auto;
+                width:100%;
+                max-width: 1200px;
+                background-color: rgba(255, 255, 255, 0.5);
+                z-index: -1;
+        
+            
+            }
+

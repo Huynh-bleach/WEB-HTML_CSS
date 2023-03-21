@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title> làm về bem csscss</title>
+      <meta charset="utf-8">
+      <style>
+          *{
+              padding: 0;
+              margin:0;
+              box-sizing:border-box;
+          }
+          body{ 
+              display: flex;
+              height: 100vh;
+              flex-direction: column;
+              font-family: "Helvetica Neue";
+             
+             
+          }
+          body > div {
+             
+              margin: auto;
+
+          }
+           
+          .btn{
+              display:block;
+              text-decoration:none ;
+              background-color: transparent;
+              border: none;
+              color: white;
+              padding: 12px 48px;
+              border-radius: 50px;
+              cursor: pointer;
+              transition: opacity .2s ease;
+              align-items: center;
+              margin: auto;
+
+
+          }
+          .btn:hover{
+              opacity: 0.8;
+          }
+          .btn--size--s{
+              padding: 8px 44px;
+          }
+          .btn--size--l{
+              padding: 18px 54px;
+          }
+
+          .btn + .btn{
+              margin-top: 20px;
+          }
+          
+          .btn--success{
+              background-color:#71be43 ;
+
+          }
+          .btn--warn{
+              background-color: #ffb702;
+
+          }
+          .btn--danger{
+              background-color:#ff623d ;
+
+          }
+          .btn--disabled{
+              opacity: 0.5 !important;
+          }
+          
+
+
+
+      </style>
+      
+    </head>
+    <body>
+     <div>
+         <button class="btn btn--size--s btn--success  ">GO TO NEXT APPROVAL</button>
+         <button class="btn btn--size--s btn--warn">OK</button>
+         <button class="btn btn--size--s btn--danger"> TRY AGAIN</button>
+     </div>
+     <!--<div>
+        <button class="btn btn--success  ">GO TO NEXT APPROVAL</button>
+        <button class="btn btn--warn">OK</button>
+        <button class="btn btn--danger"> TRY AGAIN</button>
+    </div>
+    <div>
+        <button class="btn btn--size--l btn--success  ">GO TO NEXT APPROVAL</button>
+        <button class="btn btn--size--l btn--warn btn--disabled">OK</button>
+        <button class="btn btn--size--l btn--danger"> TRY AGAIN</button>
+    </div>-->
+    <div>
+        <img class="lnXdpd" alt="Google" height="92" src="/assets/img/google.png" srcset="" width="272" data-iml="1633667001404" data-atf="1" data-frt="0">
+         <img src="/assets/img/EET.png" alt="" class="">
+         <img src="/assets/img/SGU-LOGO.png" alt="" class="">
+    </div>
+
+    </body>
+    </html>

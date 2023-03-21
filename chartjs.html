@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="E:\HTML-CSS\assets\fonts/fontawesome-free-6.2.0-web/css/all.css">
+<script src="https://kit.fontawesome.com/251dd34c64.js" crossorigin="anonymous"></script>
+<link rel="icon" href="https://cdn.oneesports.vn/cdn-data/wp-content/uploads/sites/4/2020/06/lqm-nakroth-adc-450x450.jpg" type="image/x-icon" />
+<title>MACH_TU_DONG_TRONG_NONG_NGHIEP</title>
+<link rel="stylesheet" href="E:\HTML-CSS\assets\fonts/fontawesome-free-6.2.0-web/css/all.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<title>bieu do duong</title>
+<style>
+    #myChart{
+       
+        padding: 15px;
+        border: 5px solid #00CC00;
+        border-radius: 3px;
+        margin: auto;
+        width:100%;
+        max-width: 1200px;
+
+    
+    }
+    i{
+      font-size: 30px;
+      color: #5b2e12;
+      padding: 10px;
+      
+    }
+   
+</style>
+<body>
+
+<button onclick="button()" id="sudung">
+  bat dau
+</button>
+
+<button onclick="ketthuc()" id="tieptuc">
+  ket thuc
+</button>
+<canvas id="myChart"  style="display: none;"></canvas>
+
+<canvas></canvas>
+
+
+<script>
+
+
+var thoigian = [];
+var giatri = [];
+
+var giatri_2 = [];
+
+var giatri_3 = [];
+
+var kiemtra;
+
+
+console.log(kiemtra);
+
+
+var bieudo = document.getElementById("myChart").getContext('2d');
+
+
+
+setInterval(function(){
+                      const d = new Date();
+                  let hour = d.getHours();
+
+                  let phut = d.getMinutes();
+
+                  
+
+                var time = hour.toString() + ":"+ phut.toString();
+                  
+                thoigian.push(time);
+
+                console.log(thoigian);
+                if(thoigian.length == 10){
+                  thoigian.shift()
+                }
+                  
+
+
+                  
+                  }, 5000);
+
+
+setInterval(function(){
+
+                      var a = Math.floor(Math.random() * 100);
+                      giatri.push(a);
+                      console.log(giatri);
+                      if(giatri.length == 10){
+                          giatri.shift();
+                      }
+
+                      
+    },5000);
+
+
+setInterval(function(){
+
+                    var b = Math.floor(Math.random() * 100);
+                      giatri_2.push(b);
+                    console.log(giatri_2);
+                  if(giatri_2.length == 10){
+                      giatri_2.shift();
+                      }
+
+
+        },5000);
+
+                  
+setInterval(function(){
+
+                        var c = Math.floor(Math.random() * 100);
+                        giatri_3.push(c);
+                        console.log(giatri_3);
+                      if(giatri_3.length == 10){
+                      giatri_3.shift();
+                      }
+
+
+    },5000);
+
+
+
+            
+setInterval(function(){
+
+              var line_chart = new Chart(bieudo, {
+              type: "line",
+              data: {
+                labels: thoigian,
+                datasets: [{
+                  label: 'Nhiet do',
+                  fill: false,
+                  lineTension: 0,
+                  backgroundColor: "rgba(205,0,0,1.0)",
+                  borderColor: "rgba(205,0,0,0.3)",
+                  data: giatri,
+                  tension: 0.3,
+                  borderWidth: 6
+                },
+                {
+                  label: 'Do am',
+                  fill: false,
+                  lineTension: 0,
+                  backgroundColor: "rgba(0,205,0,1.0)",
+                  borderColor: "rgba(0,205,0,0.3)",
+                  data: giatri_2,
+                  tension: 0.3,
+                  borderWidth: 6
+
+                },
+                {
+                  label: 'Do am dat',
+                  fill: false,
+                  lineTension: 0,
+                  backgroundColor: "rgba(0,0,205,1.0)",
+                  borderColor: "rgba(0,0,205,0.3)",
+                  data: giatri_3,
+                  tension: 0.3,
+                  borderWidth: 6
+                }
+            ]
+              },
+              options: {
+                title: {
+                            display:true,
+                            text: 'bieu do giam sat nong nghiep',
+                            fontSize: 25
+                        },
+                scales: {
+                  yAxes: [{ticks: {min: 0, max:100}}],
+                },          
+              }
+            });
+
+
+            }, 5000)
+
+
+function button(){
+  document.getElementById('myChart').style.display = 'block';
+}
+
+function ketthuc(){
+  document.getElementById('myChart').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
+

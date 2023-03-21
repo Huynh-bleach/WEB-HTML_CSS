@@ -1,0 +1,308 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+  
+  body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Helvetica Neue";
+    background-color: #f4f4f5;
+    align-items: center;
+    
+  }
+  
+  body > div {
+    margin: auto;
+  }
+  
+  
+  
+  /* ======= Buttons ======== */
+  
+  /* Block */
+  .btn {
+    display: block;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 12px 48px;
+    border-radius: 50px;
+    cursor: pointer;
+    min-width: 120px;
+    transition: opacity 0.2s ease;
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+  }
+  
+  /* Modifier */
+  .btn--size-l {
+    padding: 16px 56px;
+  }
+  
+  .btn--size-s {
+    padding: 8px 32px;
+  }
+  
+  .btn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  
+  .btn + .btn {
+    margin-top: 16px;
+  }
+  
+  .btn--gioithieu {
+    background-color: #71be34;
+  }
+  
+  .btn--ngoaihinh {
+    background-color: #ffb702;
+  }
+  
+  .btn--tinhcach {
+    background-color: #ff623d;
+  }
+  .btn--ketluan{
+    background-color:#ff02c0;
+  }
+  .btn--xemvideo{
+    background-color:darkred;
+  }
+  
+  .btn--disabled {
+    opacity: 0.5 !important;
+    cursor: default;
+  }
+/*
+  .btn--gioithieu,
+  .btn--ketluan,
+  .btn--ngoaihinh,
+  .btn--tinhcach,
+  .btn--xemvideo{
+    transition-duration: 1s;
+    
+  }
+  .btn--gioithieu:hover{
+    transform: translateX(500px);
+  }
+  .btn--ngoaihinh:hover
+  {
+    transform: translateY(300px);
+  }
+  .btn--tinhcach:hover{
+   
+    transform: rotate(270deg);
+  }
+  .btn--ketluan:hover{
+    transform: skew(15deg, 15deg);
+  }
+  .btn--xemvideo:hover{
+    transform: scale(1.5);
+ 
+  }
+  */
+  
+#toast {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 999999;
+  }
+.toast {
+    display: flex;
+    align-items: center;
+    background-color:#fafafa;
+    border-radius: 2px;
+    padding: 20px 0;
+    min-width: 400px;
+    max-width: 750px;
+    border-left: 4px solid;
+    box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4);
+    transition: all linear 0.3s;
+    background-color: #fafafa;
+}
+
+@keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(calc(100% + 32px));
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+    }
+  }
+
+.toast + .toast {
+    margin-top: 24px;
+  }
+  
+
+
+.toast__icon {
+    font-size: 34px;
+  }
+  
+  .toast__icon,
+  .toast__close {
+    padding: 0 16px;
+
+  }
+  
+  .toast__body {
+    flex-grow: 1;
+    text-align: center;
+
+  }
+  
+  .toast__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #222;
+  }
+  
+  .toast__msg {
+    font-size: 23px;
+    color: #b80606;
+    font-weight: 700;
+    margin-top: 6px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  
+  .toast__close {
+    font-size: 20px;
+    color: #ac9913;
+    cursor: pointer;
+  }
+  .toast__img{
+      width: 350px;
+      margin: 0 16px;
+  }
+
+
+  .toast__introduction {
+    border-color: #47d864;
+  }
+  
+  .toast__introduction .toast__icon {
+    color: #47d864;
+  }
+  
+  .toast__appearance {
+    border-color: #2f86eb;
+  }
+  
+  .toast__appearance .toast__icon {
+    color: #2f86eb;
+  }
+  
+  .toast__personality {
+    border-color: #ffc021;
+  }
+  
+  .toast__personality .toast__icon {
+    color: #ffc021;
+  }
+  
+  .toast__conclude{
+    border-color: #ff623d;
+  }
+  
+  .toast__conclude .toast__icon{
+    color: #ff623d;
+  }
+  .toast__watch{
+         border-color: #180642;
+  }
+  .toast__watch .toast__icon{
+          color: #180642;
+  }
+  .toast__watch-video{
+    width: 50px;
+  }
+
+.toast__watch-video{
+  display: none;
+}
+
+.toast__watch .toast__watch-video{
+  width: 500px;
+  height: 600px;
+  display: block;
+}
+.toast__watch .toast__icon {
+  font-size: 50px;
+}
+
+
+
+
+
+/* navbar*/
+.navbar{
+  animation: skew 3s ease-in 3s;
+  transform: skew(10deg);
+  animation-direction: alternate;
+  opacity: .9;
+}
+
+@keyframes skew {
+  0% {
+    transform: skew(20deg, 20deg);
+  }
+  100% {
+    transform: skew(-20deg, -20deg);
+  }
+}
+
+.navbar h1{
+  font-size: 30px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:orangered;
+  display: block;
+  background-color: palegreen;
+  animation: slideInLeft 3s linear;
+
+}
+.navbar-list{
+  animation: slideInLeft123 5s ease-in;
+}
+@keyframes slideInLeft123 {
+  from {
+    opacity: 0;
+    transform: translateX(calc(300%));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.btn{
+  animation: roll 3s 1 3s;
+  
+  opacity: 1;
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="E:\HTML-CSS\assets\fonts/fontawesome-free-6.2.0-web/css/all.css">
+    <script src="https://kit.fontawesome.com/251dd34c64.js" crossorigin="anonymous"></script>
+    <link rel="icon"
+        href="https://cdn.oneesports.vn/cdn-data/wp-content/uploads/sites/4/2020/06/lqm-nakroth-adc-450x450.jpg"
+        type="image/x-icon" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <title>MACH_TU_DONG_TRONG_NONG_NGHIEP</title>
+    <link rel="stylesheet" href="./css.css">
+
+</head>
+
+<body>
+    <div id="home">
+        <div class="main">
+            <h1>GIÁM SÁT TÌNH HÌNH TRONG NHÀ KÍNH</h1>
+
+        </div>
+        <div class="content">
+            <div class="temp">
+                <i class="fa-solid fa-temperature-half"></i>
+                <h2>HIỆN THỊ NHIỆT ĐỘ:</h2>
+
+            </div>
+            <div class="fah">
+                <i class="fa-solid fa-droplet"></i>
+                <h2>HIỆN THỊ NHIỆT ĐỘ TÌNH THEO ĐỘ F:</h2>
+
+            </div>
+            <div class="humi">
+                <i class="fa-solid fa-percent"></i>
+                <h2>HIỆN THỊ ĐỘ ẨM:</h2>
+            </div>
+
+            <div class="soid">
+                <i class="fa-solid fa-land-mine-on"></i>
+                <h2>HIỆN THỊ ĐỘ ẨM CỦA ĐẤT: </h2>
+            </div>
+
+
+
+            <div class="light">
+                <i class="fa-regular fa-sun"></i>
+                <h2>TÌNH HÌNH ÁNH SÁNG: </h2>
+            </div>
+
+
+
+
+            <div class="nutnhan">
+                <a class="led" href="">
+                    <div class="btn btn_on">
+                        <div class="btn_1">ON LED</div>
+                    </div>
+                </a>
+
+
+                <a class="fan" href="">
+                    <div class="btn btn_on">
+                        <div class="btn_1">ON FAN</div>
+                    </div>
+                </a>
+
+
+                <a class="pump" href="">
+                    <div class="btn btn_on">
+                        <div class="btn_1">ON PUMP</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="nutnhan">
+                <a class="led" href="" onclick="clickbutton_1()">
+                    <div class="btn btn_off">
+                        <div class="btn_1">OFF LED</div>
+                    </div>
+                </a>
+
+
+                <a class="fan" href="">
+                    <div class="btn btn_off">
+                        <div class="btn_1">OFF FAN</div>
+                    </div>
+                </a>
+
+
+                <a class="pump" href="">
+                    <div class="btn btn_off">
+                        <div class="btn_1">OFF PUMP</div>
+                    </div>
+                </a>
+            </div>
+
+
+            <div class="nutnhan">
+                <div class="servo_1">
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="180" value="0" class="slid" id="my">
+                        <p id="quay">QUAY : <span id="demo"></span><span id="do"> ĐỘ</span></p>
+                    </div>
+                </div>
+
+                <div class="servo_2">
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="180" value="0" class="slid" id="myRange">
+                        <p id="quay">Quay : <span id="mydemo"></span><span id="do"> độ</span></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="setting">
+        <!--Chon muc hieu chinh-->
+
+
+        <div id="toast">
+
+            <h1 id="intro">Thiết lập điều khiển tự động</h1>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="100" value="0" class="slid slid_change" id="my0">
+                <p id="quay">Điều kiện nhiệt độ: <span id="demo0"></span><span id="do"> °C</span></p>
+            </div>
+
+            <div class="slidecontainer">
+                <input type="range" min="0" max="100" value="0" class="slid slid_change" id="my2">
+                <p id="quay">Điều kiện độ ẩm đất: <span id="demo2"></span><span id="do"> %</span></p>
+            </div>
+
+            <div class="slidecontainer">
+                <input type="range" min="0" max="120" value="10" class="slid slid_change" id="my1">
+                <p id="quay">Thời gian lấy dữ liệu từ cảm biến: <span id="demo1"></span><span id="do"> s</span></p>
+            </div>
+
+            <!--<div class="slidecontainer">
+                        <input type="range" min="0" max="120" value="0" class="slid slid_change" id="my3">
+                          <p id="quay">Thoi gian lay du lieu tu cam bien: <span id="demo3"></span><span id="do"> s</span></p>
+                      </div>-->
+
+        </div>
+    </div>
+
+    <canvas id="myChart" style="display: none;"></canvas>
+
+
+    <div class="location">
+        <div id="icon_home" class="control" onclick="button_home()">
+            <i class="fa-sharp fa-solid fa-house"></i>
+            <h4>Home</h4>
+
+        </div>
+
+        <div id="icon_chart" class="control" onclick="button_chart()">
+            <i class="fa-sharp fa-solid fa-chart-line"></i>
+            <h4>Chart</h4>
+
+        </div>
+
+        <div id="icon_setting" class="control" onclick="button_setting()">
+            <i class="fa-sharp fa-solid fa-gear"></i>
+            <h4>Setting</h4>
+
+
+        </div>
+
+        <a href="https://www.youtube.com/" target="_blank" id="icon_video" class="control" onclick="button_video()">
+            <i class="fa-solid fa-video"></i>
+           
+            <h4>Video</h4>
+
+        </a>
+    </div>
+
+
+    <script src="./javascript.js">
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+.img{
+
+}
+.imgeet{
+    background-repeat: no-repeat;
+    margin: 50px 200px;
+    position: relative;
+    border: 2px solid red;
+}
+.imgeet::before{
+    content: "";
+    background-color: red;
+    width: 100px;
+    height: 50px;
+    position: relative;
+    top: 0;
+    right:0;
+}
+.messagemessage{
+    background-color: white;
+    font-size: 22px;
+    position: relative;
+    top: -182px;
+    right: -405px;
+    width: 297px;
+    color: #274f4f;
+    padding: 0 0 10px 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 200;
+}
+.messagemessage span{
+    opacity: 0.6;
+}

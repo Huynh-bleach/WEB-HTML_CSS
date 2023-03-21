@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <style>
+        #linechart{
+            width: 830px !important; 
+            height: 410px !important;
+
+           padding: 15px;
+           border: 5px solid #00CC00;
+           border-radius: 3px;
+
+           margin: auto;
+        }
+    </style>
+</head>
+<body>
+   
+
+
+
+<canvas id="linechart">
+
+</canvas>
+
+   
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+
+
+        var thoigian = [];
+        var giatri = [];
+
+        var giatri_2 = [];
+
+        var giatri_3 = [];
+
+
+
+        Chart.defaults.global.defaultFontColor = '#000000';
+        Chart.defaults.global.defaultFontFamily = 'Arial';
+        Chart.defaults.global.defaultFontSize = 25;
+        
+
+
+        setInterval(function(){
+            const d = new Date();
+        let hour = d.getHours();
+
+        let phut = d.getMinutes();
+
+        
+
+       var time = hour.toString() + ":"+ phut.toString();
+        
+       thoigian.push(time);
+
+       console.log(thoigian);
+       if(thoigian.length == 10){
+        thoigian.shift()
+       }
+        
+
+
+        
+        }, 5000);
+
+
+        setInterval(function(){
+
+            var a = Math.floor(Math.random() * 100);
+            giatri.push(a);
+            console.log(giatri);
+            if(giatri.length == 10){
+                giatri.shift();
+            }
+
+            
+        },5000);
+
+
+        setInterval(function(){
+
+           var b = Math.floor(Math.random() * 100);
+             giatri_2.push(b);
+           console.log(giatri_2);
+         if(giatri_2.length == 10){
+             giatri_2.shift();
+            }
+
+
+          },5000);
+
+        
+          setInterval(function(){
+
+              var c = Math.floor(Math.random() * 100);
+              giatri_3.push(c);
+              console.log(giatri_3);
+             if(giatri_3.length == 10){
+             giatri_3.shift();
+             }
+
+
+            },5000);
+
+
+        
+        setInterval(function(){
+
+            var chart = document.getElementById('linechart').getContext('2d');
+
+            var line_chart = new Chart(chart,{
+           type: 'line',
+           
+           data:{
+            labels: thoigian,
+            
+            datasets: [{
+                label: 'nhiet do',
+                backgroundColor: "rgba(0,0,0,1.0)",
+                borderColor: '#990000',
+                data: giatri,
+                fill: false,
+                tension: 0.3,
+                borderWidth: 6
+
+            },
+            {
+                label: 'do am',
+                backgroundColor:'#0000FF',
+                borderColor: '#66B2FF',
+                data: giatri_2,
+                fill: false, 
+                tension: 0.3,
+                borderWidth: 6
+                
+
+            },
+            {
+                label: 'do am dat',
+                backgroundColor:'#FF8000',
+                borderColor: '#FF8000',
+                data: giatri_3,
+                fill: false,             
+                tension: 0.3,
+                borderWidth: 6
+                
+
+            }]
+           },
+
+           options:{
+            title: {
+                display:true,
+                text: 'bieu do giam sat nong nghiep',
+                fontSize: 30
+            },
+
+            scales: {
+               yAxes: [{ticks: {min: 0, max:100}}],
+                 }
+
+           }
+
+});
+
+
+        },5000)
+        
+    </script>
+</body>
+</html>
