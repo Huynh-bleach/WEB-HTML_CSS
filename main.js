@@ -1290,7 +1290,7 @@ console.log(heading);
 
 var headCss = document.querySelector('html .box .headingcss'); // di tu the cha vao cung duoc
 
-console.log(headCss);
+console.log(headCss); // tra ve the 
 
 
 var headCSS1 = document.querySelector('.box .headingcss:first-child');
@@ -2375,7 +2375,7 @@ var {name,price,image} = course;
 console.log(name);
 console.log(price);
 console.log(image);
-*/
+
 
 // vis du neu object co object con
 
@@ -2393,7 +2393,31 @@ var course = {
 var { name: parentName } = course;
 console.log(parentName);
 
+*/
 
+
+Array.prototype.map2 = function(callback){
+    var ouput = [];
+    Arraylength = this.length;
+
+    for(var i = 0; i < Arraylength; ++i){
+
+        var result = callback(this[i],i);
+        ouput.push(result);
+
+    }
+
+    return ouput;
+}
+
+var courses = ["python", "C", "JS"];
+
+var htmls = courses.map2(function(course){
+    return `<h2>${course}</h2>`;
+});
+
+
+console.log(htmls.join(''));
 
 
 
