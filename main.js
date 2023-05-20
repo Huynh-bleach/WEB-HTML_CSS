@@ -340,9 +340,9 @@ console.log(result);
 */
 
 ////////////////////////////// lưu ý
- //khi định nghĩa hai function giống nhau thì function sau ghi đè fuction trước. kết quả sẻ hiện ra của function sau
- // khai báo biến trong hàm: biến trong hàmf chỉ được sử dụng trong hàm và bên ngoài không sự dụng được.
- // định nghĩa hàm trong hàm: được 
+//khi định nghĩa hai function giống nhau thì function sau ghi đè fuction trước. kết quả sẻ hiện ra của function sau
+// khai báo biến trong hàm: biến trong hàmf chỉ được sử dụng trong hàm và bên ngoài không sự dụng được.
+// định nghĩa hàm trong hàm: được 
 
 //4. các loại function 
 /* 
@@ -1421,7 +1421,7 @@ console.log(headingElement);
 
 //headingElement.title = 'heading';
 //headingElement.id ='heading';
-//headingElement.className = 'heading';
+//headingElement.className = 'heading';// de them class vao the element
 // them thuoc tinh vao element
 
 var youtubeElement = document.querySelector('a');
@@ -1451,13 +1451,15 @@ alert(headingElement.title); // nếu được thêm đúng thuộc tính của 
 // 3.---- học về text node gồm có hai phương thức: innerText và textContent
 //** Lưu ý: muốn tương tác với attribute và text ta cần phải lấy ra element(di từ document) của cả hai để sử dụng 
 
-var headingElement = document.querySelector('.heading');
+//var headingElement = document.querySelector('.heading');
 
 //console.log(headingElement.innerText); // lấy ra nội dung của text nam trong element 
 // hoac dung thuoc tinhs(textContent) nay der laay noi dung cuar text
 //console.log(headingElement.textContent); 
 // hai thuộc tính này (innerText và textContent) có tồn tại trong element node nên có gọi nó ra được 
- //--- cachs thay đổi nôi dung cua text
+
+
+//--- cachs thay đổi nôi dung cua text
 
 //headingElement.innerText = 'new heading text number one'; // thay đổi noi dung trong text
 // headingElement là 1 đối tượng
@@ -1467,6 +1469,7 @@ var headingElement = document.querySelector('.heading');
 
 // phân biệt hai thuộc tính: innerText và textContent
 //-- innerText: nội dung lấy được giống với nội dung mà nhìn thấy trên trình duyệt
+// in nertext laays noi dung bo cac the con ben trong
 //-- textContent: nội dung lấy được là nội dung thật của nó nằm trong dom
 // ví dụ:
 /*
@@ -1531,6 +1534,8 @@ console.log(boxElement);
 
 //boxElement.innerHTML = '<h1>new heading<\h1>';
 // cos theer lay duoc noi dung cua h1 khi duoc them vao
+// vuawf theem dc element node vaf text node vaf atribute node;
+// them duoc tat ca cac node
 boxElement.innerHTML = '<h1 class="heading_innerHTML" title="heading"> New heading number one<\h1>'
 
 console.log(boxElement.innerHTML);
@@ -1554,7 +1559,7 @@ boxElement.outerHTML = '<span> TEST<\span>';
 //--  học về node Properties
 
 var boxElement = document.querySelector('.box');
-
+// boxElement la doi tuong se có phương thức và thuộc tính.
 console.log(boxElement.style);
 
 
@@ -1585,13 +1590,15 @@ Object.assign(boxElement.style, {
 
 var boxElement = document.querySelector('.box');
 
+
 console.log(boxElement.classList);// tra ve doi tuong DOMTokenList dde quan li class cua element goi toi
-// outout: tra ve so luong class vaf teen class
+// outout: tra ve so luong class vaf teen class,  trị dạng chuỗi 
 // cos 5 phuongw thuc su dung: add, contains, remove, toggle.
 // add: them class vao element
 // contains: kiem tra class cos nam trong
 // remove: xoa bo class
-// toggle:
+// toggle: kiểm tra xem có tên class trong thẻ đó không nếu có thì bị xóa bỏ còn không có thì được thêm 
+
 
 console.log(boxElement.classList.length); // kiem tra so luong class
 
@@ -1609,6 +1616,8 @@ console.log(boxElement.classList.contains('green')); // kiem tra class co hay ko
 boxElement.classList.remove('blue'); // xoa class blue
 
 // cach dung
+
+//forEach
 
 setTimeout(() =>{
     boxElement.classList.remove('red');
@@ -1644,6 +1653,15 @@ h1Element.onclick = function() {
     alert("Hello World!");
     // khi click noi dung cua h1 thif doan code moi duoc thuc thi 
 }
+var h1Elements = document.quẻySelectorAll('h1');
+
+for (vả i = 0; i < h1Elements.length; ++i){
+    h1Elements[i].onclick = function(e){
+        console.log(e.target);
+    }
+}
+
+
 */
 
 //    -------- HOCJ ve DOM event(tt)
@@ -1709,6 +1727,17 @@ var inputElement = document.querySelecor('input[type="text"]');
 
 inputElement.onkeydown = function(e){
     console.log(e.target.value);
+}
+
+
+inputElement.onkeyup = function(e){
+    console.log(e.which);
+
+    switch(e.which){
+        case 27:
+            console.log('exit');
+            break;
+    }
 }
 
 
@@ -1810,17 +1839,27 @@ ulElement.onmousedown = function(e){
 
 ulElement.onclick = function(e) {
     console.log(e.target);
-}*/
+}
 
 // StopPropagation ngan chan su kien noi bot
 
+
+document.querySelector('button').onclick =
+    function(e){
+        e.stopPropagation();
+        console.log('click me');
+    }
+
+*/
 // ------------------------------------------------------------  Bai: Event Listener
 //1. xử lí nhiều việc khi 1 event xảy ra
 // 2. lắng nghe/ hủy bỏ lắng nghe
 
-var btn = document.getElementById('btn');
+/*var btn = document.getElementById('btn');
 console.log(btn);
+*/
 /*
+
 btn.onclick = function(){
     console.log("xu li viec 1");
     console.log("xu li viec 2");
@@ -1870,8 +1909,8 @@ setTimeout(function(){
 
 // có hai thao tác mã hóa và giải mã (chuyển đổi sang kiểu dữ liệu khác, )
 
-// Stringify (tu Json sang Javascrpit)
- // Parse (tu javascrpit sang json)
+// Stringify (tu  Javascrpit sang json)
+// Parse (tu json sang javascript)
 
 //var json = 'false';
 //var json = 'null';
@@ -1879,23 +1918,28 @@ setTimeout(function(){
 // ngan cach cac key dang chuoi thi dung dau ""
 //var json = '["Java","PHP"]';
 
+// var json = '{"name": "huynh", "age": 18}'; // bie dien object duoi dang json
 // theo kieu object
-// theo dang chuoi them vao 1 dau nhay
+// theo dang chuoi them vao 1 dau nhay keps
 
 // var json = '"sba';
 
 //var json = '{"name": "MH", "age":20}';
 
-//console.log(JSON.parse(json));
+//console.log(JSON.parse(json)); // cu phap chuyeenr tuwf json sang javascript
+
+// console.log(JSON.stringify(['java', 'python']));// chuyen javascript sang json
 
 
 //------------------------------------------------------------------------ hoc ve Promise
 
 //k.n:  
 // Sync : đồng bộ 
+
 // async: bất đồng bộ
 // Nỗi đau
 // lý thuyết, cách hoạt động 
+// thực hành, ví dụ
 
 //------- sync/ async
 
@@ -1908,6 +1952,7 @@ setTimeout(function(){
 
 // ---------- Nỗi đau
 //-- callback hell
+// py of doom
 /*
 Thực ra callback hell trong javascript chỉ là bạn thực hiện quá nhiều callback lồng nhau. Đại khái, callback hell sẽ có hình dạng như bên dưới
 */
@@ -1948,23 +1993,24 @@ setTimeout(function(){
 
 
 var promise = new Promise(
+
     // executor
     // function nay thuc thi khi cac ban goi toi promise
     // tra ve hai gia tri
     // resolve: thanh cong
     // reject: that bai
-    function(resolve, reject){
+    function (resolve, reject) {
         // khi executor thực thi thì ta nhận được hai tham số
         //logic: thanh cong hay that bai
         // thanh cong: resolve();
         //that bai: reject();
-    // fake call API
-    resolve([{
-        id: 1, 
-        name: 'javascript'
+        // fake call API
+        resolve([{
+            id: 1,
+            name: 'javascript'
 
-    }
-]);
+        }
+        ]);
 
     }
 );
@@ -2090,13 +2136,13 @@ sleep(1000)
 })
 */
 
-//---- Promise.esolve
+//---- Promise.resolve
 //-----Promise reject
 //---- Promise all
 
 // cachs dung promise resolve
 /*
-var promise =  Promise.resolve('ban da thanh cong');
+var promise =  Promise.resolve('ban da thanh cong'); // tra ve primice luon thanh cong
 
 
 promise
@@ -2147,6 +2193,53 @@ var promise2 = new Promise(
 
 
 
+/// ---------------------------------------  HỌC VỀ FETCH
+
+// 1. Font- end: xây dựng giao diện người dùng
+// Back -end: Xây dựng logic xử lí và cơ sở dữ 
+//  API -> Application programing interface: giao diện lập trình ứng dụng
+// cổng giao tiếp giữa các phần mền.
+
+// Back- end trả cho cái API , dùng FETCh để lấy dữ liệu, nhận được dữ liệu là  JSON hoặc XML 
+// JSON.parse -> Javascript types
+//-> Render ra giao diện với html
+/*
+
+var postAPI = 'https://jsonplaceholder.typicode.com/posts';
+
+//  stream
+fetch(postAPI)
+    .then(function (response) {
+        return response.json(); // trar laij 1 promise
+         // se tra ve JSON.parse 
+    })
+
+
+    .then(function(posts){ // nhaanj dduocwj tuwf JSON sang javascript types
+            //console.log(posts);
+
+            var htmls = posts.map(function(post){
+                return`<li>
+                <h2> ${post.title}</h2>
+                <p>${post.body}</p>
+                </li>`
+            });
+
+          var html = htmls.join(''); 
+          document.getElementById('post-bloack').innerHTML = html;
+    });
+/*
+
+    /// -------------------------- thuw vien JSON sever: APi 
+
+
+
+
+
+
+
+
+
 // ---------------------------------- Học về ES6 (ECMAsript 6)
 // là một quy chuẩn 
 
@@ -2155,9 +2248,9 @@ var promise2 = new Promise(
 // phân biệt var/ let,const: phạm vi truy cập(scope), đưa lên trên dầu(hosting)
 
 
-// phân biệt Const /var ,let : assignment(gàn lại giá )
+// phân biệt Const /var ,let : assignment(gan lại giá )
 
-//-------- phạm vi xuy cập của 3 cách khai báo
+//-------- phạm vi truy cập của 3 cách khai báo
 // code bloack: if else, looop,{},....
 // có dấu ngoặc kép thì code block
 // trong code block thì sử dụng let và const khai báo biến thì bên ngoài code block thì biến này không tồn tại
@@ -2185,12 +2278,45 @@ console.log(course);
 //ví dụ :
 // const a = {
 //   name: 'js'}
-// a.name ='php
-// 
+// a.name ='php // đang gán lại thuộc tính name cua biến a, nên cía này thuc3wj hiện được.
+// chứ không phải  gán lại a.
+// gán lại thuộc tính thì được.
 
 
 // code thuần thì sử dụng var
+
+
 // nếu sử dụng thư viện babel thì dùng const và let
+//- khi định nghĩa biến và không gán lại biến đó: dùng const
+//- khi cần gán lại gia s trị của biến: let.
+
+//------------------------------ ---------- Template literals.
+/*
+const courseName = "javascript";
+const description = `Course name: \\ // ${courseName}`;
+
+
+console.log(description);
+
+const line = `line 1
+line 2
+line 3
+line4`;
+
+console.log(line);
+*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // -------------------------------------- học về arrow function(hàm mũi tên)
@@ -2330,7 +2456,7 @@ console.log(course1);
 //---------------------------------------------------------------- Default parameter values(ddinh nghia ra gia tri mac dinh cua tham so)
 
  function logger(log = 'Gia tri mac dinh 123'){ // thay cac if bang cus phap nay
-   /* if(typeof log == 'undefined'){
+   /* if(typeof log === 'undefined'){
         log = 'Gia tri mac dinh';
     }
     console.log(log);
@@ -2394,15 +2520,15 @@ var { name: parentName } = course;
 console.log(parentName);
 
 */
+/*
 
-
-Array.prototype.map2 = function(callback){
+Array.prototype.map2 = function (callback) {
     var ouput = [];
     Arraylength = this.length;
 
-    for(var i = 0; i < Arraylength; ++i){
+    for (var i = 0; i < Arraylength; ++i) {
 
-        var result = callback(this[i],i);
+        var result = callback(this[i], i);
         ouput.push(result);
 
     }
@@ -2412,14 +2538,14 @@ Array.prototype.map2 = function(callback){
 
 var courses = ["python", "C", "JS"];
 
-var htmls = courses.map2(function(course){
+var htmls = courses.map2(function (course) {
     return `<h2>${course}</h2>`;
 });
 
 
 console.log(htmls.join(''));
 
-
+*/
 
 
 
